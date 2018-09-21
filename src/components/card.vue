@@ -1,13 +1,18 @@
 <template>
   <div>
     <p class="card">
-      {{text}}
+      {{text}}{{lll}}
     </p>
   </div>
 </template>
 
 <script>
 export default {
+  data () {
+    return {
+      lll: '123345'
+    }
+  },
   props: ['text']
 }
 </script>

@@ -11,9 +11,13 @@
     "lint": "eslint --ext .js,.vue src"
   },
   "dependencies": {
+    "less": "^3.8.1",
+    "less-loader": "^4.1.0",
     "mp-weui": "^1.0.4",
     "mpvue": "^1.0.11",
-    "vuex": "^3.0.1"
+    "vue-template-compiler": "^2.5.17",
+    "vuex": "^3.0.1",
+    "wux-weapp": "^3.1.0"
   },
   "devDependencies": {
     "mpvue-loader": "^1.1.2",

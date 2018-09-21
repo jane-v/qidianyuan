@@ -9,32 +9,36 @@
     </div>
     <a href="/pages/counter/main" class="counter">去往Vuex示例页面</a>
     <a href="/pages/logs/main" class="counter">log</a>
-    <a href="/pages/home/main" class="counter">主页</a>
-    <a href="/pages/logs/main" class="counter">log</a>
-
-    <div class="usermotto">
-      <div class="user-motto">
-        <card :text="motto"></card>
-      </div>
-    </div>
-
-    <form class="form-container">
-      <input type="text" class="form-control" v-model="motto" placeholder="v-model" />
-      <input type="text" class="form-control" v-model.lazy="motto" placeholder="v-model.lazy" />
-    </form>
-    
+    <a href="/pages/home/main" class="counter">主页</a>  
   </div>
 </template>
 
 <script>
 import card from '@/components/card'
-import MpSearch from 'mp-weui/packages/search'
+import vueTabBar from '@/components/vueTabBar'
+
+// <div class="usermotto">
+//       <div class="user-motto">
+//         <card :text="motto"></card>
+//       </div>
+//     </div>
+
+//     <form class="form-container">
+//       <input type="text" class="form-control" v-model="motto" placeholder="v-model" />
+//       <input type="text" class="form-control" v-model.lazy="motto" placeholder="v-model.lazy" />
+//     </form>
 
 export default {
   data () {
     return {
       motto: 'Hello World',
       userInfo: {},
+      tabbar: {
+        selectNavIndex: 1,
+        needButton: false,
+        handButton: false,
+        btnText: 'dfsdf'
+      },
       options: [
         {
           label: '被禁用',
@@ -55,10 +59,16 @@ export default {
 
   components: {
     card,
-    MpSearch
+    vueTabBar
   },
-
+  onShow () {
+    console.log('onLoad')
+    wx.showTabBar()
+  },
   methods: {
+    clickIndexNav () {
+
+    },
     bindViewTap () {
       const url = '../logs/main'
       wx.navigateTo({ url })

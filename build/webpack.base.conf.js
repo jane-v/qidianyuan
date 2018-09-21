@@ -65,6 +65,7 @@ module.exports = {
         loader: 'mpvue-loader',
         options: vueLoaderConfig
       },
+      
       {
         test: /\.js$/,
         include: [resolve('src'), resolve('test')],
@@ -101,6 +102,10 @@ module.exports = {
           limit: 10000,
           name: utils.assetsPath('fonts/[name].[ext]')
         }
+      },
+      { 
+        test: /\.less$/, 
+        loader: "style-loader!css-loader!less-loader"
       }
     ]
   },
