@@ -15,7 +15,6 @@
 
 <script>
 import card from '@/components/card'
-import vueTabBar from '@/components/vueTabBar'
 
 // <div class="usermotto">
 //       <div class="user-motto">
@@ -58,11 +57,10 @@ export default {
   },
 
   components: {
-    card,
-    vueTabBar
+    card
   },
   onShow () {
-    console.log('onLoad')
+    console.log('onLoad1')
     wx.showTabBar()
   },
   methods: {

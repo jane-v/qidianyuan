@@ -14,7 +14,7 @@
             {{item.text}}
           </p>
         </li>
-        <li v-if="needButton" style="flex: 3">
+        <!-- <li v-if="needButton" style="flex: 3">
           <div class="submit-box">
             <button :disabled="!handButton"
                     @click="bindNavigateTo('../order/main')"
@@ -22,7 +22,7 @@
               {{ btnText }}
             </button>
           </div>
-        </li>
+        </li> -->
       </ul>
     </article>
   </section>
@@ -32,19 +32,19 @@
 //   import store from '../vuex/index'
 
 export default {
-  props: ['selectNavIndex', 'needButton', 'handButton', 'btnText'],
+  props: ['selectNavIndex'],
   data () {
     return {
       isshow: 'dfasdfsdf',
       navList: [
         {
-          'pagePath': '/pages/index/main',
+          'pagePath': '/pages/home/main',
           'iconPath': '/static/images/nav_img_touxiang.png',
           'selectedIconPath': '/static/images/nav_img_touxiang.png',
           'text': '广场'
         },
         {
-          'pagePath': '/pages/home/main',
+          'pagePath': '/pages/discovery/main',
           'iconPath': '/static/images/nav_img_touxiang.png',
           'selectedIconPath': '/static/images/nav_img_touxiang.png',
           'text': '发现'
@@ -61,7 +61,7 @@ export default {
           'text': '优质'
         },
         {
-          'pagePath': '/pages/home/main',
+          'pagePath': '/pages/mine/main',
           'iconPath': '/static/images/nav_img_touxiang.png',
           'selectedIconPath': '/static/images/nav_img_touxiang.png',
           'text': '我的'
@@ -77,7 +77,7 @@ export default {
        * @param index
        */
     selectNavItem (index, pagePath) {
-      console.log(this.selectNavIndex)
+      console.log(this.selectNavIndex, index, pagePath)
 
       if (index === this.selectNavIndex) {
         return false
@@ -86,7 +86,11 @@ export default {
       if (index === 0 && this.selectNavIndex === -1) {
         this.$emit('fetch-index')
       }
-      this.bindViewTap(pagePath)
+      if (index === 2) {
+        this.bindNavigateTo(pagePath)
+      } else {
+        this.bindViewTap(pagePath)
+      }
     },
 
     /**
@@ -153,7 +157,7 @@ export default {
       transition: .24s linear;
     }
     .item-text-active {
-      color: #27a79a;
+      color: rgba(148, 132, 220, 1);
     }
 
     .item-images {
