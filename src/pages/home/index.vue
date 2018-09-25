@@ -1,164 +1,135 @@
 <template>
-  <div class="home">
-    <mp-search
-      @confirm="onSearchConfirm"
-      @change="onSearchChange"
-    />
-    <swiper :indicator-dots="swipers.indicatorDots" :autoplay="swipers.autoplay" :interval="swipers.interval" :duration="swipers.duration" :circular="swipers.circular" @change="swiperChange" @animationfinish="animationfinish">
-      <div v-for="(item, index) in swipers.imgUrls" :key="index">
-        <swiper-item>
-          <image :src="item" class="slide-image" />
-        </swiper-item>
+  <div class="container" @click="clickHandle('test click', $event)">
+
+    <div class="userinfo" @click="bindViewTap">
+      <img class="userinfo-avatar" v-if="userInfo.avatarUrl" :src="userInfo.avatarUrl" background-size="cover" />
+      <div class="userinfo-nickname">
+        <card :text="userInfo.nickName"></card>
       </div>
-    </swiper>
-    <ul class="li-list">
-      <li></li>
-      <li></li>
-      <li></li>
-      <li></li>
-    </ul>
-    <a href="/pages/index/main" class="home">去往首页</a>
-    <section class="business">
-      <p>资源行业选择</p>
-      <ul>
-        <li>打发首付是</li>
-        <li>水电费</li>
-        <li>滴滴</li>
-        <li>阿斯蒂芬</li>
-      </ul>
-    </section>
-    <vue-tab-bar
-      @fetch-index="clickIndexNav"
-      :selectNavIndex="tabbar.selectNavIndex"
-      :needButton="tabbar.needButton"
-      :handButton="tabbar.handButton"
-      :btnText="tabbar.btnText">
-    </vue-tab-bar>  
+    </div>
+    <a href="/pages/counter/main" class="counter">去往Vuex示例页面</a>
+    <a href="/pages/logs/main" class="counter">log</a>
+    <a href="/pages/home/main" class="counter">主页</a>  
   </div>
 </template>
 
 <script>
-import MpSearch from 'mp-weui/packages/search'
-import vueTabBar from '@/components/vueTabBar'
-// Use Vuex
-// import store from './store'
+import card from '@/components/card'
 
-// <p>
-//       <button @click="increment">+</button>
-//       <button @click="decrement">-</button>
-//     </p>
+// <div class="usermotto">
+//       <div class="user-motto">
+//         <card :text="motto"></card>
+//       </div>
+//     </div>
+
+//     <form class="form-container">
+//       <input type="text" class="form-control" v-model="motto" placeholder="v-model" />
+//       <input type="text" class="form-control" v-model.lazy="motto" placeholder="v-model.lazy" />
+//     </form>
 
 export default {
   data () {
     return {
+      motto: 'Hello World',
+      userInfo: {},
       tabbar: {
-        selectNavIndex: 0
+        selectNavIndex: 1,
+        needButton: false,
+        handButton: false,
+        btnText: 'dfsdf'
       },
-      swipers: {
-        indicatorDots: true,
-        autoplay: true,
-        interval: 5000,
-        duration: 900,
-        circular: true,
-        imgUrls: [
-          'http://img02.tooopen.com/images/20150928/tooopen_sy_143912755726.jpg',
-          'http://img06.tooopen.com/images/20160818/tooopen_sy_175866434296.jpg',
-          'http://img06.tooopen.com/images/20160818/tooopen_sy_175833047715.jpg'
-        ]
-      }
+      options: [
+        {
+          label: '被禁用',
+          value: 'A',
+          disabled: true
+        },
+        {
+          label: '选项B',
+          value: 'B'
+        },
+        {
+          label: '选项C',
+          value: 'C'
+        }
+      ]
     }
   },
+
   components: {
-    MpSearch,
-    vueTabBar
-  },
-  computed: {
-    // count () {
-    //   return store.state.count
-    // }
+    card
   },
   onShow () {
-    console.log('onshow')
-    wx.hideTabBar()
-  },
-  onLoad () {
-    // console.log('onLoad')
-    // wx.hideTabBar()
+    console.log('onLoad1')
+    wx.showTabBar()
   },
   methods: {
     clickIndexNav () {
 
     },
-    onSearchConfirm () {
-
+    bindViewTap () {
+      const url = '../logs/main'
+      wx.navigateTo({ url })
     },
-    onSearchChange () {
-
+    getUserInfo () {
+      // 调用登录接口
+      wx.login({
+        success: () => {
+          wx.getUserInfo({
+            success: (res) => {
+              this.userInfo = res.userInfo
+            }
+          })
+        }
+      })
     },
-    swiperChange (e) {
-      // console.log('第' + e.mp.detail.current + '张轮播图发生了滑动')
-    },
-    animationfinish (e) {
-      // console.log('第' + e.mp.detail.current + '张轮播图滑动结束')
+    clickHandle (msg, ev) {
+      console.log('clickHandle:', msg, ev)
     }
-    // increment () {
-    //   store.commit('increment')
-    // },
-    // decrement () {
-    //   store.commit('decrement')
-    // }
+  },
+
+  created () {
+    // 调用应用实例的方法获取全局数据
+    this.getUserInfo()
   }
 }
 </script>
 
 <style scoped>
-.counter-warp {
+.userinfo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.userinfo-avatar {
+  width: 128rpx;
+  height: 128rpx;
+  margin: 20rpx;
+  border-radius: 50%;
+}
+
+.userinfo-nickname {
+  color: #aaa;
+}
+
+.usermotto {
+  margin-top: 150px;
+}
+
+.form-control {
+  display: block;
+  padding: 0 12px;
+  margin-bottom: 5px;
+  border: 1px solid #ccc;
+}
+
+.counter {
   display: inline-block;
-  margin: 100px auto;
+  margin: 10px auto;
   padding: 5px 10px;
   color: blue;
   border: 1px solid blue;
 }
-.home {
-  text-align: center;
-  margin-top: 0px;
-}
-swiper{
-  margin: 12px;
-  border:rgba(204, 204, 204, 1) solid 1px;
-  border-radius: 6px;
-}
-.li-list{
-  padding:13px;
-  display: flex;
-  justify-content:space-between;
-  height: 66px;
-}
-.li-list li{
-  border: solid rgba(204, 204, 204, 1) 1px;
-  width: 66px;
-}
-.business{
-  padding: 13px;
-}
-.business p{
-  text-align: left;
-  color:rgba(144, 129, 222, 1)
-}
-.business ul{
-  display: flex;
-  align-content:space-around;
-  flex-wrap:wrap;
-  justify-content:space-between;
-}
-.business li{
-  background: rgba(229, 229, 229, 1);
-  border-radius:4px;
-  margin-top:12px;
-  font-size: 14px;
-  line-height: 30px;
-  border:rgba(204, 204, 204, 1) solid 1px;
-  height: 30px;
-  width: 31%;
-}
 </style>
+

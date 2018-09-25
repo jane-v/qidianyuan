@@ -66,7 +66,7 @@ export default {
     return {
       pickerValueDefault: [0, 0, 0],
       tabbar: {
-        selectNavIndex: 1
+        selectNavIndex: 3
       },
       array1: ['四川', '陕西'],
       mArray: [['四川', '陕西'], ['成都', '西安'], ['武侯', '长安']],
@@ -156,7 +156,6 @@ export default {
   text-align: center;
 }
 .discovery .dis_container{
-  padding-left: 12px;
-  padding-right: 12px;
+ 
 }
 </style>

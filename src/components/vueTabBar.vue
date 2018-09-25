@@ -38,16 +38,16 @@ export default {
       isshow: 'dfasdfsdf',
       navList: [
         {
-          'pagePath': '/pages/home/main',
+          'pagePath': '/pages/index/main',
           'iconPath': '/static/images/nav_img_touxiang.png',
           'selectedIconPath': '/static/images/nav_img_touxiang.png',
           'text': '广场'
         },
         {
-          'pagePath': '/pages/discovery/main',
+          'pagePath': '/pages/order/main',
           'iconPath': '/static/images/nav_img_touxiang.png',
           'selectedIconPath': '/static/images/nav_img_touxiang.png',
-          'text': '发现'
+          'text': '订单'
         },
         {
           'pagePath': '/pages/home/main',
@@ -55,10 +55,10 @@ export default {
           'plus': true
         },
         {
-          'pagePath': '/pages/home/main',
+          'pagePath': '/pages/discovery/main',
           'iconPath': '/static/images/nav_img_touxiang.png',
           'selectedIconPath': '/static/images/nav_img_touxiang.png',
-          'text': '优质'
+          'text': '资源'
         },
         {
           'pagePath': '/pages/mine/main',

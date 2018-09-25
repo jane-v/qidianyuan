@@ -6,7 +6,8 @@
     "pages/businessselet/main",
     "pages/logs/main",
     "pages/counter/main",
-    "pages/mine/main"
+    "pages/mine/main",
+    "pages/order/main"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -24,22 +25,28 @@
         "text": "首页"
       },
       {
+        "pagePath": "pages/order/main",
+        "iconPath": "/static/images/nav_img_touxiang.png",
+        "selectedIconPath": "/static/images/nav_img_touxiang.png",
+        "text": "订单"
+      },
+      {
+        "pagePath": "pages/discovery/main",
+        "iconPath": "/static/images/nav_img_touxiang.png",
+        "selectedIconPath": "/static/images/nav_img_touxiang.png",
+        "text": "发布"
+      },
+      {
         "pagePath": "pages/discovery/main",
         "iconPath": "/static/images/nav_img_touxiang.png",
         "selectedIconPath": "/static/images/nav_img_touxiang.png",
         "text": "发现"
       },
       {
-        "pagePath": "pages/home/main",
-        "iconPath": "/static/images/nav_img_touxiang.png",
-        "selectedIconPath": "/static/images/nav_img_touxiang.png",
-        "text": "订单"
-      },
-      {
         "pagePath": "pages/mine/main",
         "iconPath": "/static/images/nav_img_touxiang.png",
         "selectedIconPath": "/static/images/nav_img_touxiang.png",
-        "text": "订单"
+        "text": "我的"
       }
     ]
   }
