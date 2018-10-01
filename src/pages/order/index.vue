@@ -66,7 +66,7 @@ export default {
 .order {
   padding-bottom:20px;
   .demandlist{
-    background: grey;
+    background: #f5f5f5;
     padding-bottom:0px;
   }
   p{

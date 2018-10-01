@@ -39,14 +39,14 @@ export default {
       navList: [
         {
           'pagePath': '/pages/index/main',
-          'iconPath': '/static/images/nav_img_touxiang.png',
-          'selectedIconPath': '/static/images/nav_img_touxiang.png',
+          'iconPath': '/static/images/nav_img_abord.png',
+          'selectedIconPath': '/static/images/nav_img_abord_1.png',
           'text': '广场'
         },
         {
           'pagePath': '/pages/order/main',
-          'iconPath': '/static/images/nav_img_touxiang.png',
-          'selectedIconPath': '/static/images/nav_img_touxiang.png',
+          'iconPath': '/static/images/nav_img_order.png',
+          'selectedIconPath': '/static/images/nav_img_order_1.png',
           'text': '订单'
         },
         {
@@ -56,14 +56,14 @@ export default {
         },
         {
           'pagePath': '/pages/discovery/main',
-          'iconPath': '/static/images/nav_img_touxiang.png',
-          'selectedIconPath': '/static/images/nav_img_touxiang.png',
+          'iconPath': '/static/images/nav_img_resource.png',
+          'selectedIconPath': '/static/images/nav_img_resource_1.png',
           'text': '资源'
         },
         {
           'pagePath': '/pages/mine/main',
-          'iconPath': '/static/images/nav_img_touxiang.png',
-          'selectedIconPath': '/static/images/nav_img_touxiang.png',
+          'iconPath': '/static/images/nav_img_mine.png',
+          'selectedIconPath': '/static/images/nav_img_mine_1.png',
           'text': '我的'
         }
       ]
@@ -157,7 +157,7 @@ export default {
       transition: .24s linear;
     }
     .item-text-active {
-      color: rgba(148, 132, 220, 1);
+      // color: rgba(148, 132, 220, 1);
     }
 
     .item-images {

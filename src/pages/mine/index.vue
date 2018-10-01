@@ -1,21 +1,55 @@
 <template>
-  <div class="home">
-    <ul class="li-list">
-      <li></li>
-      <li></li>
-      <li></li>
-      <li></li>
+  <div class="mine">
+    <my-card></my-card>
+    <ul class="jumpmine">
+      <li @click="jumpmine()">
+        <span class="num">8</span>
+        <span>我发布的</span>
+      </li>
+      <li class="border">
+        <span class="num">100</span>
+        <span>已匹配的</span>
+      </li>
+      <li>
+        <span class="num">223</span>
+        <span>我收藏的</span>
+      </li>
     </ul>
-    <a href="/pages/index/main" class="home">去往首页</a>
-    <section class="business">
-      <p>资源行业选择</p>
-      <ul>
-        <li>打发首付是</li>
-        <li>水电费</li>
-        <li>滴滴</li>
-        <li>阿斯蒂芬</li>
-      </ul>
-    </section>
+    <jump-line 
+      lable="我的会员"
+      border = "true"
+      imgsrc = '/static/images/img_vip.png'
+      margin_top = "true"
+    ></jump-line>
+    <!-- <jump-line 
+      lable="我的消息"
+      border = "true"
+      imgsrc = '/static/images/img_message.png'
+    ></jump-line> -->
+    <jump-line 
+      lable="我的收藏"
+      border = "true"
+      imgsrc = '/static/images/img_collect.png'
+    ></jump-line>
+    <jump-line 
+      lable="身份认证"
+      border = "true"
+      imgsrc = '/static/images/img_certify.png'
+    ></jump-line>
+    <jump-line 
+      lable="个人海报"
+      imgsrc = '/static/images/img_haibao.png'
+    ></jump-line>
+    <jump-line 
+      lable="关于我们"
+      border = "true"
+      margin_top = "true"
+      imgsrc = '/static/images/img_about.png'
+    ></jump-line>
+    <jump-line 
+      lable="意见反馈"
+      imgsrc = '/static/images/img_contact.jpg'
+    ></jump-line>
     <vue-tab-bar
       @fetch-index="clickIndexNav"
       :selectNavIndex="tabbar.selectNavIndex"
@@ -27,8 +61,9 @@
 </template>
 
 <script>
-import MpSearch from 'mp-weui/packages/search'
 import vueTabBar from '@/components/vueTabBar'
+import myCard from '@/components/myCard'
+import jumpLine from '@/components/jumpLine'
 
 export default {
   data () {
@@ -39,8 +74,9 @@ export default {
     }
   },
   components: {
-    MpSearch,
-    vueTabBar
+    vueTabBar,
+    myCard,
+    jumpLine
   },
   computed: {
     // count () {
@@ -52,59 +88,38 @@ export default {
     wx.hideTabBar()
   },
   methods: {
+    jumpmine () {
 
+    }
   }
 }
 </script>
 
-<style scoped>
-.counter-warp {
-  display: inline-block;
-  margin: 100px auto;
-  padding: 5px 10px;
-  color: blue;
-  border: 1px solid blue;
-}
-.home {
-  text-align: center;
-  margin-top: 0px;
-}
-swiper{
-  margin: 12px;
-  border:rgba(204, 204, 204, 1) solid 1px;
-  border-radius: 6px;
-}
-.li-list{
-  padding:13px;
-  display: flex;
-  justify-content:space-between;
-  height: 66px;
-}
-.li-list li{
-  border: solid rgba(204, 204, 204, 1) 1px;
-  width: 66px;
-}
-.business{
-  padding: 13px;
-}
-.business p{
-  text-align: left;
-  color:rgba(144, 129, 222, 1)
-}
-.business ul{
-  display: flex;
-  align-content:space-around;
-  flex-wrap:wrap;
-  justify-content:space-between;
-}
-.business li{
-  background: rgba(229, 229, 229, 1);
-  border-radius:4px;
-  margin-top:12px;
-  font-size: 14px;
-  line-height: 30px;
-  border:rgba(204, 204, 204, 1) solid 1px;
-  height: 30px;
-  width: 31%;
+<style lang="less" scoped>
+.mine{
+  background: #f5f5f5;
+  padding-bottom:60px;
+  .jumpmine{
+    background: #ffffff;
+    display: flex;
+    align-content:space-around;
+    flex-wrap:wrap;
+    justify-content:space-between;
+    height: 73px;
+    li{
+      width: 33.33%;
+      text-align:center;
+      span{
+        font-size:12px;
+        color:#666666;
+        display: block;
+        &.num{
+          font-size:20px;
+          color:#000000;
+          margin-top:10px;
+        }
+      }
+    }
+  }
 }
 </style>

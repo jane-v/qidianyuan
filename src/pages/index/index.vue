@@ -27,7 +27,7 @@
       </swiper>
     </section>
     <ul class="li-list">
-      <li></li>
+      <li @click="openurl('http://www.baidu.com')"></li>
       <li></li>
       <li></li>
       <li></li>
@@ -128,6 +128,14 @@ export default {
     },
     animationfinish (e) {
       // console.log('第' + e.mp.detail.current + '张轮播图滑动结束')
+    },
+    openurl (url) {
+      // wx.navigateTo({url: '/pages/webview?url=' + encodeURIComponent(url)})
+      wx.navigateTo({
+        url: '/pages/webview/main'
+      }
+
+      )
     }
     // increment () {
     //   store.commit('increment')
